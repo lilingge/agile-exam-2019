@@ -9,9 +9,9 @@ public class PaginationHelper<I> {
 
     private List<I> collection;
     private int itemsPerPage;
-    private int sum;
+    private int Sum;
     private int Page_count;
-    private  int currelem;
+    private  int Currelem;
     private  int PageIndex;
 
     /**
@@ -28,8 +28,8 @@ public class PaginationHelper<I> {
      * 返回collection中所有元素的个数
      */
     public int itemCount() {
-        sum = collection.size();
-        return sum;
+        Sum = collection.size();
+        return Sum;
     }
 
     /**
@@ -54,14 +54,14 @@ public class PaginationHelper<I> {
             throw new RuntimeException();
         if (pageIndex < pageCount()) {
             if ((pageIndex + 1) * itemsPerPage > itemCount()) {
-                currelem = itemCount() - (pageIndex) * itemsPerPage;
+                Currelem = itemCount() - (pageIndex) * itemsPerPage;
             } else {
-                currelem = itemsPerPage;
+                Currelem = itemsPerPage;
             }
         } else {
-            currelem = -1;
+            Currelem = -1;
         }
-        return currelem;
+        return Currelem;
     }
 
     /**
